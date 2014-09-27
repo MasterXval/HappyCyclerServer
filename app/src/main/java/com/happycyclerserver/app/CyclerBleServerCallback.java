@@ -6,12 +6,13 @@ import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattServer;
 import android.bluetooth.BluetoothGattServerCallback;
 import android.bluetooth.BluetoothGattService;
+import android.bluetooth.BluetoothProfile;
 
 import com.happycyclerserver.util.Logger;
 
 import java.util.UUID;
 
-public class CyclerBleServerCallback extends BluetoothGattServerCallback{
+public class CyclerBleServerCallback extends BluetoothGattServerCallback {
 
     private BluetoothGattServer mGattServer;
 
@@ -30,7 +31,20 @@ public class CyclerBleServerCallback extends BluetoothGattServerCallback{
 
     public void onConnectionStateChange(
             BluetoothDevice device, int status, int newState) {
-        Logger.v(this, "onConnectionStateChange status=" + status + "->" + newState);
+
+        Logger.v(this, "onConnectionStateChange()");
+        switch (status) {
+            case BluetoothProfile.STATE_CONNECTED:
+            case BluetoothProfile.STATE_CONNECTING:
+                Logger.v(this, "connected or connecting");
+                break;
+            case BluetoothProfile.STATE_DISCONNECTED:
+            case BluetoothProfile.STATE_DISCONNECTING:
+                Logger.v(this, "deconnected or deconnecting");
+                break;
+            default:
+                Logger.v(this, "other");
+        }
     }
 
 

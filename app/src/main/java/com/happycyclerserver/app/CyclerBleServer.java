@@ -132,7 +132,7 @@ public class CyclerBleServer {
         AdvertiseSettings.Builder builder = new AdvertiseSettings.Builder();
         builder.setTxPowerLevel(AdvertiseSettings.ADVERTISE_TX_POWER_HIGH);
         builder.setType(AdvertiseSettings.ADVERTISE_TYPE_CONNECTABLE);
-        builder.setAdvertiseMode(AdvertiseSettings.ADVERTISE_MODE_BALANCED);
+        builder.setAdvertiseMode(AdvertiseSettings.ADVERTISE_MODE_LOW_LATENCY);
         return builder.build();
     }
 

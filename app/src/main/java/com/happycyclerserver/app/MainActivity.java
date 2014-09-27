@@ -23,13 +23,11 @@ public class MainActivity extends Activity {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onResume() {
+        super.onResume();
+        if (CyclerBleServer.get().isRunning()) {
+            mStartButton.setText(getString(R.string.stop));
+        }
     }
 
     @OnClick(R.id.start_button)
