@@ -4,5 +4,9 @@
     <string name="app_name">HappyCyclerServer</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="ble_service_content">We are advertising ^^</string>
+    <string name="ble_service_title">BLE</string>
 
 </resources>

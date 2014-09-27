@@ -13,5 +13,6 @@ public class MyApplication extends Application {
         super.onCreate();
         Help.setAppCtx(getApplicationContext());
         Help.setMainThreadHandler(new Handler(Looper.getMainLooper()));
+        CyclerBleServer.get();
     }
 }
